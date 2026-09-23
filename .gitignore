@@ -1,0 +1,16 @@
+.idea/
+.vscode/
+*.iml
+
+# IDE 与本机环境
+application_local.yml
+
+# 运行时产物
+target/
+dist/
+node_modules/
+*.class
+
+# 模型本地存储与临时文件
+embedding-store/
+*.log

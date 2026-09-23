@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: mcm-helper
+  profiles:
+    active: local
+  webflux:
+    base-path: /api
+modelScope:
+    mcp:
+     url: "https://mcp.api-inference.modelscope.net/fb627860e0b84b/sse"      # 替换成你的 Remote URL
+langchain4j:
+  community:
+    dashscope:
+      chat-model:
+        model-name: qwen-max
+        api-key: ${DASHSCOPE_API_KEY:your-api-key-here}
+      embedding-model:
+        model-name: text-embedding-v2
+        api-key: ${DASHSCOPE_API_KEY:your-api-key-here}
+      streaming-model:
+        model-name: qwen-max
+        api-key: ${DASHSCOPE_API_KEY:your-api-key-here}
+server:
+  port: 8084
+
