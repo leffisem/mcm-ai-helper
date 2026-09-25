@@ -248,7 +248,7 @@ const renderedContent = computed(() => {
   display: flex;
   gap: 12px;
   margin-bottom: 24px;
-  padding: 0 16px;
+  padding: 0 8px;
 }
 
 .message-wrapper.user {
@@ -260,45 +260,48 @@ const renderedContent = computed(() => {
 }
 
 .avatar-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 4px;
-  background: #10a37f;
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #10a37f 0%, #0ea5e9 100%);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
+  box-shadow: 0 12px 20px rgba(16, 163, 127, 0.2);
 }
 
 .message-content-wrapper {
-  max-width: 75%;
+  max-width: 78%;
 }
 
 .message-wrapper.user .message-content-wrapper {
-  max-width: 75%;
+  max-width: 76%;
 }
 
 .message-bubble {
-  padding: 12px 16px;
-  border-radius: 16px;
-  line-height: 1.6;
+  padding: 14px 16px;
+  border-radius: 20px;
+  line-height: 1.7;
   font-size: 15px;
   word-wrap: break-word;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
 }
 
 .message-bubble.user {
-  background: #ececec;
-  color: #2d2d2d;
-  border-bottom-right-radius: 4px;
+  background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
+  color: #0f172a;
+  border-bottom-right-radius: 8px;
+  border: 1px solid rgba(147, 197, 253, 0.35);
 }
 
 .message-bubble.assistant {
-  background: #ffffff;
-  color: #2d2d2d;
-  border: 1px solid #f0f0f0;
-  border-bottom-left-radius: 4px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #1f2937;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-bottom-left-radius: 8px;
 }
 
 .message-text {
@@ -309,17 +312,15 @@ const renderedContent = computed(() => {
 /* === 单条消息复制按钮 === */
 .message-actions {
   display: flex;
-  margin-top: 4px;
+  margin-top: 6px;
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: opacity 0.2s ease;
 }
 
-/* 悬停消息时显示按钮 */
 .message-wrapper:hover .message-actions {
   opacity: 1;
 }
 
-/* 用户消息靠右对齐 */
 .message-wrapper.user .message-actions {
   justify-content: flex-end;
 }
@@ -328,28 +329,29 @@ const renderedContent = computed(() => {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 3px 10px;
-  border: none;
-  border-radius: 6px;
-  background: transparent;
-  color: #999;
+  padding: 4px 10px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.75);
+  color: #64748b;
   font-size: 12px;
   cursor: pointer;
   font-family: inherit;
-  transition: background 0.2s, color 0.2s;
+  transition: all 0.2s ease;
 }
 
 .copy-btn:hover {
-  background: #ececec;
-  color: #555;
+  background: rgba(255, 255, 255, 0.96);
+  color: #0f172a;
 }
 
 .copy-btn.copied {
   color: #10a37f;
+  border-color: rgba(16, 163, 127, 0.3);
 }
 
 .copy-btn.copied:hover {
-  background: rgba(16, 163, 127, 0.1);
+  background: rgba(16, 163, 127, 0.08);
 }
 
 /* === Markdown 样式 === */
@@ -357,127 +359,129 @@ const renderedContent = computed(() => {
   font-size: 1.3em;
   font-weight: 700;
   margin: 20px 0 10px;
-  padding-bottom: 6px;
-  border-bottom: 2px solid #10a37f;
-  color: #1a1a1a;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(16, 163, 127, 0.3);
+  color: #0f172a;
 }
 
 .message-text :deep(h3) {
   font-size: 1.15em;
   font-weight: 700;
-  margin: 16px 0 8px;
-  color: #2d2d2d;
+  margin: 18px 0 8px;
+  color: #1e293b;
 }
 
 .message-text :deep(ul),
 .message-text :deep(ol) {
-  padding-left: 24px;
-  margin: 6px 0;
+  padding-left: 22px;
+  margin: 8px 0;
 }
 
 .message-text :deep(li) {
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .message-text :deep(p) {
-  margin: 8px 0;
+  margin: 10px 0;
 }
 
 .message-text :deep(strong) {
   font-weight: 700;
+  color: #0f172a;
 }
 
 .message-text :deep(blockquote) {
   border-left: 3px solid #10a37f;
-  margin: 8px 0;
-  padding: 4px 12px;
-  color: #555;
-  background: #f9f9f9;
-  border-radius: 0 4px 4px 0;
+  margin: 12px 0;
+  padding: 8px 12px;
+  color: #475569;
+  background: rgba(16, 163, 127, 0.04);
+  border-radius: 0 8px 8px 0;
 }
 
 .message-text :deep(table) {
   border-collapse: collapse;
-  margin: 8px 0;
+  margin: 10px 0;
   font-size: 14px;
   width: 100%;
 }
 
 .message-text :deep(th),
 .message-text :deep(td) {
-  border: 1px solid #ddd;
-  padding: 6px 10px;
+  border: 1px solid #e2e8f0;
+  padding: 8px 10px;
   text-align: left;
 }
 
 .message-text :deep(th) {
-  background: #f5f5f5;
-  font-weight: 600;
+  background: #f8fafc;
+  font-weight: 700;
 }
 
 .message-text :deep(hr) {
   border: none;
-  border-top: 1px solid #eee;
-  margin: 16px 0;
+  border-top: 1px solid rgba(148, 163, 184, 0.28);
+  margin: 18px 0;
 }
 
 /* === 代码块样式 === */
 .message-text :deep(.code-block) {
-  background: #f6f8fa;
-  border: 1px solid #e1e4e8;
-  border-radius: 6px;
-  margin: 8px 0;
+  background: #0f172a;
+  border: 1px solid rgba(148,163,184,0.2);
+  border-radius: 12px;
+  margin: 12px 0;
   overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
 }
 
 .message-text :deep(.code-header) {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 6px 12px;
-  background: #eceff2;
-  border-bottom: 1px solid #e1e4e8;
+  padding: 8px 12px;
+  background: rgba(15, 23, 42, 0.85);
+  border-bottom: 1px solid rgba(148,163,184,0.15);
   font-size: 12px;
 }
 
 .message-text :deep(.code-lang) {
-  color: #6a737d;
+  color: #cbd5e1;
   font-family: 'SFMono-Regular', Consolas, Menlo, monospace;
 }
 
 .message-text :deep(.code-copy-btn) {
   display: inline-flex;
   align-items: center;
-  padding: 2px 10px;
-  border: 1px solid #d0d7de;
-  border-radius: 5px;
-  background: #fff;
-  color: #57606a;
+  padding: 4px 9px;
+  border: 1px solid rgba(148,163,184,0.25);
+  border-radius: 6px;
+  background: rgba(255,255,255,0.04);
+  color: #e2e8f0;
   font-size: 12px;
   cursor: pointer;
   font-family: inherit;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  transition: all 0.2s ease;
 }
 
 .message-text :deep(.code-copy-btn:hover) {
-  background: #f0f2f4;
-  color: #24292f;
+  background: rgba(255,255,255,0.08);
+  color: #fff;
 }
 
 .message-text :deep(.code-copy-btn.copied) {
-  color: #10a37f;
-  border-color: #10a37f;
+  color: #86efac;
+  border-color: rgba(134, 239, 172, 0.4);
 }
 
 .message-text :deep(.code-block pre) {
   background: none;
   border: none;
   border-radius: 0;
-  padding: 12px 16px;
+  padding: 14px 16px;
   margin: 0;
   overflow-x: auto;
   font-size: 13px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .message-text :deep(code) {
@@ -487,9 +491,9 @@ const renderedContent = computed(() => {
 
 .message-text :deep(p code),
 .message-text :deep(li code) {
-  background: #f0f0f0;
+  background: rgba(15, 23, 42, 0.06);
   padding: 2px 6px;
-  border-radius: 3px;
+  border-radius: 6px;
   color: #d63384;
 }
 
@@ -502,7 +506,7 @@ const renderedContent = computed(() => {
 
 /* === KaTeX 样式 === */
 .message-text :deep(.katex-display) {
-  margin: 8px 0;
+  margin: 10px 0;
   overflow-x: auto;
   overflow-y: hidden;
 }
@@ -515,7 +519,7 @@ const renderedContent = computed(() => {
 .cursor-blink {
   display: inline;
   animation: blink 1s step-end infinite;
-  color: #2d2d2d;
+  color: #2563eb;
   font-size: 15px;
 }
 

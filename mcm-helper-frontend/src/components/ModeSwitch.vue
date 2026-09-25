@@ -28,33 +28,39 @@ defineEmits(['update:modelValue'])
 
 <style scoped>
 .mode-switch {
-  display: flex;
-  background: #f0f0f0;
-  border-radius: 8px;
-  padding: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: linear-gradient(180deg, rgba(148, 163, 184, 0.12), rgba(255, 255, 255, 0.9));
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 999px;
+  padding: 4px;
   width: fit-content;
-  margin: 0 auto 12px;
+  margin: 0 auto 14px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .mode-btn {
-  padding: 6px 20px;
+  padding: 8px 20px;
   border: none;
-  border-radius: 6px;
+  border-radius: 999px;
   background: transparent;
-  color: #666;
-  font-size: 14px;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   font-family: inherit;
 }
 
 .mode-btn.active {
-  background: #10a37f;
+  background: linear-gradient(135deg, #10a37f 0%, #0ea5e9 100%);
   color: #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 18px rgba(16, 163, 127, 0.22);
 }
 
 .mode-btn:not(.active):hover {
-  color: #333;
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.5);
 }
 </style>

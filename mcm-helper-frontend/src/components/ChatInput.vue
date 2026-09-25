@@ -90,8 +90,8 @@ defineExpose({ focus, currentMode })
 
 <style scoped>
 .chat-input-area {
-  padding: 0 16px 16px;
-  max-width: 800px;
+  padding: 0 18px 18px;
+  max-width: 920px;
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
@@ -100,18 +100,19 @@ defineExpose({ focus, currentMode })
 .input-container {
   display: flex;
   align-items: flex-end;
-  gap: 8px;
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 8px 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-  transition: box-shadow 0.2s;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 20px;
+  padding: 12px 14px 12px 16px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  transition: all 0.2s ease;
 }
 
 .input-container:focus-within {
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  border-color: #10a37f;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08), 0 0 0 4px rgba(16, 163, 127, 0.09);
+  border-color: rgba(16, 163, 127, 0.32);
+  background: rgba(255, 255, 255, 0.95);
 }
 
 .chat-textarea {
@@ -120,46 +121,50 @@ defineExpose({ focus, currentMode })
   outline: none;
   resize: none;
   font-size: 15px;
-  line-height: 1.5;
+  line-height: 1.6;
   font-family: inherit;
-  color: #2d2d2d;
+  color: #1f2937;
   max-height: 200px;
-  padding: 4px 0;
+  padding: 6px 0;
   background: transparent;
 }
 
 .chat-textarea::placeholder {
-  color: #999;
+  color: #94a3b8;
 }
 
 .send-btn {
   flex-shrink: 0;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
   border: none;
-  background: #10a37f;
+  background: linear-gradient(135deg, #10a37f 0%, #0ea5e9 100%);
   color: #fff;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s;
+  box-shadow: 0 12px 20px rgba(16, 163, 127, 0.24);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
 .send-btn:hover:not(:disabled) {
-  background: #0e8c6b;
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 14px 24px rgba(16, 163, 127, 0.28);
 }
 
 .send-btn:disabled {
-  background: #ccc;
+  background: linear-gradient(135deg, #cbd5e1 0%, #e2e8f0 100%);
+  box-shadow: none;
   cursor: not-allowed;
 }
 
 .hint-text {
   text-align: center;
-  color: #999;
+  color: #64748b;
   font-size: 12px;
   margin: 10px 0 0;
+  letter-spacing: 0.01em;
 }
 </style>
